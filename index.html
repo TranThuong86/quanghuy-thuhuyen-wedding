@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Mời Cưới Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    
+
+
+    <link rel="stylesheet" href="style.css">
+   
+
+</head>
+<body>
+  
+ <!-- ===== HEADER CỐ ĐỊNH ĐẦU TRANG ===== -->
+<div class="fixed-header-wrapper">
+  <div class="fixed-header">
+    <!-- Nút ☰ chỉ hiện trên mobile -->
+    <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+
+    <!-- Tên cặp đôi -->
+    <div class="couple-name">
+      QH
+      <svg viewBox="0 0 32 29" height="1.2em" fill="#d35e6d" xmlns="http://www.w3.org/2000/svg" style="margin: 0 0.2em; vertical-align: middle;">
+        <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,20.5c6.5-8.6,16-11.1,16-20.5C32,3.8,28.2,0,23.6,0z"/>
+      </svg>
+      TH
+    </div>
+
+    <!-- Menu ngang cho desktop -->
+    <nav class="desktop-nav">
+      <ul>
+        <li><a data-id="btn-capdoi">Cặp đôi</a></li>
+        <li><a data-id="album-section">Album hình cưới</a></li>
+        <li><a data-id="schedule-section">Lịch sự kiện</a></li>
+        <li><a data-id="guestbook-form">Lời chúc</a></li>
+        <li><a href="#" id="btn-mungcuoi">Mừng cưới</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Menu mobile khi bấm ☰ -->
+  <div class="mobile-menu" id="mobile-menu" >
+    <button id="mobile-menu-close" class="mobile-menu-close">✖</button>
+    <ul>
+      <li><a data-id="btn-capdoi">Cặp đôi</a></li>
+      <li><a data-id="album-section">Album hình cưới</a></li>
+      <li><a data-id="schedule-section">Lịch sự kiện</a></li>
+      <li><a data-id="guestbook-form">Lời chúc</a></li>
+      <li><a href="#" id="btn-mungcuoi-mobile">Mừng cưới</a></li>
+    </ul>
+  </div>
+</div>
+<header class="carousel-header">
+  <div class="carousel-container" >
+    <div class="carousel-slide" id="carousel-slide">
+      <img src="chure.jpg" alt="Clone cuối"> <!-- clone cuối -->
+      <img src="damcuoi.jpg" alt="Ảnh 1">
+      <img src="chure.jpg" alt="Ảnh 2">
+      <img src="damcuoi.jpg" alt="Clone đầu"> <!-- clone đầu -->
+    </div>
+    <!-- ✅ LỚP PHỦ MỜ -->
+  <div class="overlay"></div>
+    <!-- Nút điều hướng -->
+    <button class="prev-btn" id="prevBtn">&#10094;</button>
+    <button class="next-btn" id="nextBtn">&#10095;</button>
+  </div>
+
+  <!-- Chữ tiêu đề -->
+  <div class="header-text">
+    <h1>Quang Huy <span class="heart"><i class="fa-solid fa-heart"></i></span> Thu Huyền</h1>
+    <h2>We're Getting Married!</h2>
+    <p>18/05/2025</p>
+  </div>
+</header>
+
+
+
+  <!-- Floating Menu -->
+  <div class="floating-menu">
+    <button class="floating-btn main-btn" id="toggle-menu" style="display: none;">☰</button>
+    <div class="menu-items show" id="menu-items">
+      <div class="menu-item">
+        <span class="btn-label">Cặp đôi</span>
+        <button class="floating-btn" id="floating-capdoi" title="Thông tin cặp đôi"> <i class="fa-solid fa-user-group"></i></i></button>
+      </div>
+      <div class="menu-item">
+        <span class="btn-label">Album hình cưới</span>
+        <button class="floating-btn" id="btn-album" title="Album hình cưới"><i class="fa-solid fa-camera"></i></button>
+      </div>
+      <div class="menu-item">
+        <span class="btn-label">Lịch sự kiện</span>
+        <button class="floating-btn" id="btn-lich" title="Lịch sự kiện"><i class="fa-solid fa-calendar-days"></i></button>
+      </div>
+      <div class="menu-item">
+        <span class="btn-label">Lời chúc</span>
+        <button class="floating-btn" id="btn-guichuc" title="Gửi lời chúc"><i class="fa-solid fa-envelope"></i></button>
+      </div>
+      <div class="menu-item">
+        <span class="btn-label">Mừng cưới</span>
+        <button class="floating-btn" id="floating-mungcuoi" title="Mừng cưới"> <i class="fa-solid fa-sack-dollar"></i></button>
+      </div>
+      <div class="menu-item">
+        <span class="btn-label">Đóng</span>
+        <button class="floating-btn close-btn" id="btn-close" title="Đóng"> <i class="fa-solid fa-xmark"></i></button>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <!-- Popup Mừng Cưới -->
+  <div id="mungcuoi-popup" class="popup-overlay hidden">
+    <div class="popup-content" >
+      <button class="popup-close" id="close-popup"> <i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="bank-info-scroll">
+        <div class="bank-info">
+          <div style="text-align: center;">
+            <h2>Hộp mừng cưới</h2>
+<p>Tình cảm bạn gửi đến, dù theo cách nào, cũng là niềm hạnh phúc lớn với chúng mình. 💖</p>
+<hr style="margin: 25px 0;">
+            <h3>CHÚ RỂ</h3>
+            </div>
+            <p><strong>Chủ TK:</strong> Trần Quang Huy</p>
+            <p><strong>Số tài khoản:</strong> 0123456789</p>
+          <p><strong>Ngân hàng:</strong> Vietcombank</p>
+          <p><strong>Chi nhánh:</strong> Hà Nội</p>
+          <div style="text-align:center; margin-top: 15px;">
+            <img src="qr.jpg" alt="QR Chú Rể" style="width: 180px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+          </div>
+      
+          <hr style="margin: 25px 0;">
+      
+          <div style="text-align: center;">
+            <h3>CÔ DÂU</h3>
+            </div>
+          <p><strong>Chủ TK:</strong> Nguyễn Thị Thu Huyền</p>
+          <p><strong>Số tài khoản:</strong> 9876543210</p>
+          <p><strong>Ngân hàng:</strong> BIDV</p>
+          <p><strong>Chi nhánh:</strong> Ba Vì</p>
+          <div style="text-align:center; margin-top: 15px;">
+            <img src="qr.jpg" alt="QR Cô Dâu" style="width: 180px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+          </div>
+        </div>
+      </div>      
+    </div>
+  </div>
+  
+  <!-- Vùng nút âm nhạc + chữ thông báo -->
+  <div class="music-wrapper">
+    <button id="toggle-music" class="music-icon" title="Nhạc cưới"><i class="fa-solid fa-music"></i></button>
+    <div id="music-hint" class="music-hint">
+      <span class="music-text">Click vào đây nếu bạn muốn phát nhạc!</span>
+    </div>
+  </div>
+
+<section class="countdown-section">
+    <h2>Đếm Ngược Tới Ngày Cưới</h2>
+    <div id="countdown">
+        <div><span id="days">00</span><p>Ngày</p></div>
+        <div><span id="hours">00</span><p>Giờ</p></div>
+        <div><span id="minutes">00</span><p>Phút</p></div>
+        <div><span id="seconds">00</span><p>Giây</p></div>
+    </div>
+</section>
+
+<section class="info-section" id="btn-capdoi">
+    <h2>Chú Rể</h2>
+    <img src="chure.jpg" alt="Chú Rể" class="photo">
+    <p class="name">Trần Quang Huy</p>
+    <div class="details">
+        <p><strong>Phụ thân:</strong> Trần Văn Hùng</p>
+        <p><strong>Phụ mẫu:</strong> Đặng Thị Liên</p>
+    </div>
+</section>
+
+<section class="info-section" >
+    <h2>Cô Dâu</h2>
+    <img src="codau.jpg" alt="Cô Dâu" class="photo">
+    <p class="name">Nguyễn Thị Thu Huyền</p>
+    <div class="details">
+        <p><strong>Phụ thân:</strong> Nguyễn Văn E</p>
+        <p><strong>Phụ mẫu:</strong> Nguyễn Thị F</p>
+    </div>
+</section>
+
+<section id="album-section">
+    <h2>Album Hình Cưới</h2>
+    <div class="album-images" >
+        <img src="anhcuoi6.jpg" alt="Ảnh 7" >
+        <img src="anhcuoi1.jpg" alt="Ảnh 2">
+        
+        <img src="anhcuoi3.jpg" alt="Ảnh 4">
+        <img src="anhcuoi2.jpg" alt="Ảnh 3">
+      
+        <img src="anhcuoi5.jpg" alt="Ảnh 6">
+        <img src="anhcuoi4.jpg" alt="Ảnh 5">
+        
+    </div>
+</section>
+
+<section id="schedule-section">
+    <h2>Tiệc Cưới</h2>
+    <div class="party-info" >
+        <h3>Nhà Trai</h3>
+        <img src="tieccuoi.jpg">
+        <p><strong>Thời gian:</strong> 16:30, 17/05/2025 <br> (tức ngày 20 tháng 4 năm Ất Tỵ)</p>
+        <p><em>TƯ GIA NHÀ TRAI</em></p>
+        <p><strong>Địa điểm:</strong> Số nhà 5, Ngõ 4, Thôn 4, Vân Nam, Phúc Thọ, Hà Nội</p>
+        <a href="https://maps.app.goo.gl/sme2Jj64kpa678ex5" class="map-link" target="_blank">Xem Bản Đồ</a>
+    </div>
+    <div class="divider"></div>
+    <div class="party-info">
+        <h3>Nhà Gái</h3>
+        <img src="tieccuoi.jpg">
+        <p><strong>Thời gian:</strong> 16:30, 17/05/2025 <br>(tức ngày 20 tháng 4 năm Ất Tỵ) </p>
+        <p><em>TƯ GIA NHÀ GÁI</em></p>
+        <p><strong>Địa điểm:</strong> xã Khánh Thượng, Ba Vì, Hà Nội</p>
+        <a href="https://maps.app.goo.gl/uuHcBmJrUBVfpXTeA" class="map-link" target="_blank">Xem Bản Đồ</a>
+    </div>
+</section>
+
+<section id="btn-lich">
+    <h2>Lễ Cưới</h2>
+    <div class="ceremony-info" >
+        <h3>Nhà Trai</h3>
+        <img src="lecuoi.jpg">
+        <p><strong>Thời gian:</strong> 12:00, 18/05/2025 <br> (tức ngày 21 tháng 4 năm Ất Tỵ)</p>
+        <p><em>TƯ GIA NHÀ TRAI</em></p>
+        <p><strong>Địa điểm:</strong> Số nhà 5, Ngõ 4, Thôn 4, Vân Nam, Phúc Thọ, Hà Nội</p>
+        <a href="https://maps.app.goo.gl/sme2Jj64kpa678ex5" class="map-link" target="_blank">Xem Bản Đồ</a>
+    </div>
+    <div class="divider"></div>
+    <div class="ceremony-info" >
+        <h3>Nhà Gái</h3>
+        <img src="lecuoi.jpg">
+        <p><strong>Thời gian:</strong> 8:30, 18/05/2025 <br> (tức ngày 21 tháng 4 năm Ất Tỵ)</p>
+        <p><em>TƯ GIA NHÀ GÁI</em></p>
+        <p><strong>Địa điểm:</strong> xã Khánh Thượng, Ba Vì, Hà Nội</p>
+        <a href="https://maps.app.goo.gl/uuHcBmJrUBVfpXTeA" class="map-link" target="_blank">Xem Bản Đồ</a>
+    </div>
+</section>
+
+<section class="guestbook-section" id="btn-guichuc">
+    <h2> Sổ Lưu Bút</h2>
+    <form id="guestbook-form">
+        <input type="text" id="name" placeholder="Nhập tên của bạn*" >
+        <textarea id="message" placeholder="Nhập lời chúc của bạn*" ></textarea>
+        <button type="submit">Gửi lời chúc</button>
+        <p id="error-message" class="error"></p>
+    </form>
+    <div id="guestbook-messages"></div>
+</section>
+
+<audio id="wedding-music" autoplay loop>
+    <source src="I Do - 911 (Lyrics & Vietsub).mp3" type="audio/mpeg">
+    Trình duyệt của bạn không hỗ trợ audio.
+</audio>
+
+<footer>
+  <div class="footer-message">
+    💕 Cảm ơn bạn đã là một phần trong khoảnh khắc tuyệt vời nhất cuộc đời chúng tôi. 💕
+  </div>
+</footer>
+
+
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBwedUMgsq8Iu6BZmdQIdeQhBwrCG0zURY",
+    authDomain: "so-luu-but-dam-cuoi.firebaseapp.com",
+    databaseURL: "https://so-luu-but-dam-cuoi-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "so-luu-but-dam-cuoi",
+    storageBucket: "so-luu-but-dam-cuoi.firebasestorage.app",
+    messagingSenderId: "1047306194530",
+    appId: "1:1047306194530:web:f595334dcfe33175758b3b"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+</script>
+<!-- Nhúng file JS -->
+<script src="script.js"></script>
+
+</body>
+</html>

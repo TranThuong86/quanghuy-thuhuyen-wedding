@@ -1,0 +1,911 @@
+
+  
+html, body {
+    overflow-x: hidden !important;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+body {
+  padding-top: 60px;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff8f0;
+    color: #333;
+    overflow-x: hidden; /* Ẩn cuộn ngang */
+}
+
+/* HIỆU ỨNG ẢNH ALBUM*/
+.album {
+    margin: 30px auto;
+    text-align: center;
+  }
+  
+  .album-title h2 {
+    font-size: 36px;
+    font-family: 'Great Vibes', cursive;
+    margin-bottom: 20px;
+  }
+  
+  .album-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+  }
+  
+  
+  .album-images img {
+    max-width: 300px; /* Điều chỉnh kích thước tối đa của ảnh */
+    max-height: 200px; /* Điều chỉnh chiều cao tối đa của ảnh */
+    object-fit: contain; /* Giữ tỷ lệ ảnh ban đầu */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .album-images img:hover {
+    transform: scale(1.1); /* Tăng kích thước ảnh khi hover */
+  }
+  
+  /* Media Query cho điện thoại di động (<= 576px) */
+@media (max-width: 576px) {
+    .album-images img {
+      
+      max-width: 200px; /* Điều chỉnh kích thước tối đa của ảnh */
+     max-height: 150px; /* Điều chỉnh chiều cao tối đa của ảnh */
+    object-fit: contain; /* Giữ tỷ lệ ảnh ban đầu */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    }
+  }
+
+.heart {
+color: #f67e7d;
+font-size: 1em;
+vertical-align: middle;
+margin: 0 8px;
+}
+
+
+#countdown div {
+background: #fff0f0;
+padding: 20px;
+border-radius: 12px;
+box-shadow: 0 4px 10px rgba(183, 110, 121, 0.3);
+width: 80px;
+min-width: 70px;
+}
+.countdown-section {
+text-align: center;
+margin: 40px auto;
+}
+
+#countdown {
+display: flex;
+justify-content: center;
+gap: 20px;
+font-family: 'Lora', sans-serif;
+
+}
+
+#countdown div {
+background: #fff0f0;
+padding: 20px;
+border-radius: 12px;
+box-shadow: 0 4px 10px rgba(183, 110, 121, 0.3);
+width: 100px;
+display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#countdown span {
+font-size: 2.5em;
+color: #b76e79;
+font-weight: bold;
+}
+
+#countdown p {
+margin-top: 10px;
+font-size: 1em;
+color: #333;
+}
+
+
+/*tiêu đề đầu trang*/
+/* ==== HEADER CỐ ĐỊNH ==== */
+.fixed-header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 240, 240, 0.85);
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+ 
+}
+
+.fixed-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Mặc định cho desktop */
+  padding: 12px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+/* Tên QH TH */
+.couple-name {
+  font-size: 1.8em;
+  font-family: 'Lora', cursive;
+  color: #c21e54;
+  font-weight: bold;
+  white-space: nowrap;
+  flex: none;
+  text-align: left;
+}
+
+/* Menu ngang desktop */
+.desktop-nav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.desktop-nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.desktop-nav a {
+  text-decoration: none;
+  color: #b76e79;
+  font-family: 'Lora', sans-serif;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.desktop-nav a:hover {
+  background: #fce3e3;
+}
+
+/* ==== NÚT ☰ VÀ MENU TRÊN ĐIỆN THOẠI ==== */
+/* Menu mobile mặc định ẩn trên màn hình desktop */
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.6em;
+    background: none;
+    border: none;
+    color: #b76e79;
+    cursor: pointer;
+    z-index: 10001;
+    
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    height: 100vh;
+    background: #fff0f0;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    z-index: 10000;
+    padding-top: 60px;
+  }
+
+  .mobile-menu.show {
+    display: flex;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .mobile-menu li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .mobile-menu a {
+    text-decoration: none;
+    color: #b76e79;
+    font-family: 'Lora', sans-serif;
+    font-size: 1.1em;
+  }
+
+  .mobile-menu-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.6em;
+    color: #b76e79;
+    cursor: pointer;
+  }
+}
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .fixed-header {
+    justify-content: center;
+  }
+
+  .couple-name {
+    text-align: center;
+    flex: none;
+  }
+
+
+@media (min-width: 769px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  .fixed-header {
+    justify-content: space-between;
+  }
+
+  .couple-name {
+    text-align: left;
+    margin-left: 0;
+    flex: none;
+  }
+
+  .desktop-nav {
+    display: flex;
+  }
+}
+
+/* Hiệu ứng khi tiêu đề hiện */
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.carousel-header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+    margin-top: -60px;
+  }
+.carousel-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.carousel-container .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(92, 88, 88, 0.35); /* màu đen mờ */
+  z-index: 1; /* dưới chữ, trên ảnh */
+}
+
+
+.carousel-slide {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  transition: transform 1s ease-in-out;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  color: #c5bdbd;
+  background: rgba(255, 255, 255, 0.25); /* nền mờ nhẹ */
+  backdrop-filter: blur(8px);            /* tạo hiệu ứng mờ giống ảnh */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.carousel-header .header-text {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.header-text h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3em;
+    margin: 0;
+    white-space: nowrap; /* Ngăn ngắt dòng */
+}
+
+.header-text h2 {
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+.header-text p {
+    font-size: 1.5em;
+    font-family: 'Lora', sans-serif;
+    
+}
+
+section {
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    scroll-margin-top: 50px; 
+    opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.4s ease, transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 {
+    font-size: 2.2em;
+    color: #b76e79;
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    margin-bottom: 25px;
+}
+
+.info-section {
+    text-align: center;
+    
+}
+
+.photo {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.album {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    overflow-x: hidden;
+}
+
+.album img {
+    width: 100%;
+    max-width: 300px;
+    height:auto; /* Đảm bảo ảnh không bị méo */
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.party-info, .ceremony-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.party-info img,
+.ceremony-info img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    display: block;
+    margin: 0 auto 10px; /* 0 trên, auto trái‑phải, 10px dưới */
+}
+.party-info p,
+.ceremony-info p {
+    font-family: 'Lora', sans-serif;
+    font-size: 1em;
+    font-style: italic;
+}
+.party-info p em,
+.ceremony-info p em {
+  font-family: 'Lora', sans-serif;
+    display: block;
+    font-style: italic;
+    font-size: 1.25em;
+    color: #666;
+    font-weight: 700;
+    margin: 2px 0;
+}
+
+.map-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #b76e79;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.map-link:hover {
+    text-decoration: underline;
+    color: #a24f5b;
+}
+
+.guestbook-section {
+    background-color: #fff0f0;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.guestbook-section form {
+    max-width: 600px;
+    margin: auto;
+    scroll-margin-top: 170px; 
+}
+
+.guestbook-section input,
+.guestbook-section textarea {
+width: 100%;
+padding: 15px;
+margin-bottom: 15px;
+border: 1px solid #ccc;
+border-radius: 10px;
+font-size: 1.1em;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: #fff;
+color: #333;
+font-style: italic;
+}
+
+
+.guestbook-section button {
+background: linear-gradient(135deg, #b76e79, #f6c5c5);
+color: white;
+border: none;
+padding: 15px 35px;
+font-size: 1.2em;
+font-family: 'Lora',sans-serif;
+border-radius: 30px;
+cursor: pointer;
+transition: all 0.3s ease;
+box-shadow: 0 4px 10px rgba(183, 110, 121, 0.3);
+}
+
+.guestbook-section button:hover {
+background: linear-gradient(135deg, #a05060, #e5a8a8);
+transform: scale(1.05);
+box-shadow: 0 6px 15px rgba(183, 110, 121, 0.5);
+}
+.error {
+  font-family: 'Lora', serif;        /* hoặc 'Playfair Display' nếu bạn muốn sang hơn */
+  color: gray;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  display: none;
+}
+
+/* Cải thiện kiểu chữ cho tên cô dâu, chú rể */
+.name {
+font-family: 'Great Vibes', cursive;
+font-size: 2em;
+margin: 15px 0;
+text-align: center;
+color: #b76e79;
+}
+
+/* Phụ thân, phụ mẫu */
+.details {
+font-family: 'Lora', sans-serif;
+font-size: 1.15em;
+color: #444;
+text-align: center;
+margin-top: 10px;
+line-height: 0.8;
+}
+
+#guestbook-messages {
+    margin-top: 25px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    max-height: 400px;  /* Giới hạn chiều cao */
+    overflow-y: auto;   /* Cho phép cuộn dọc */
+    font-family: 'Lora', Tahoma, Geneva, Verdana, sans-serif; /* Phông chữ */
+}
+#message {
+  min-height: 100px; /* Chiều cao ban đầu tối thiểu */
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  overflow-y: auto; /* Không hiển thị thanh cuộn mặc định */
+  resize: none; /* Tắt tính năng kéo dài bằng tay */
+  
+}
+.message {
+    margin-bottom: 15px;
+    background-color: #fef2f2;
+    padding: 15px;
+    border-radius: 8px;
+    
+}
+
+.message strong {
+    color: #b76e79;
+}
+
+footer {
+  background: linear-gradient(135deg, #fde4e4, #f7caca);
+  padding: 20px 10px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.5em;
+  color: #b76e79;
+  box-shadow: 0 -3px 12px rgba(183, 110, 121, 0.2);
+  margin-top: 40px;
+}
+
+.footer-message {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.2;
+  padding: 0 5px;
+}
+
+
+/* Hiệu ứng ảnh chung */
+.photo,
+.album img,
+.party-info img,
+.ceremony-info img {
+transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover phóng to nhẹ và đổ bóng */
+.photo:hover,
+.album img:hover,
+.party-info img:hover,
+.ceremony-info img:hover {
+transform: scale(1.05);
+box-shadow: 0 8px 20px rgba(183, 110, 121, 0.4);
+}
+/* hiệu ứng tuyết*/
+.snowflake {
+  position: fixed;
+  top: -10px;
+  background: radial-gradient(white, rgba(255,255,255,0.5));
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  opacity: 0.9;
+  animation: snowfall linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0.5;
+  }
+}
+
+
+ /* Bố cục phân cách giữa Nhà Trai và Nhà Gái */
+ .divider {
+    margin: 40px 0;
+    height: 2px;
+    background-color: #b76e79;
+    border-radius: 10px;
+}
+
+/* Tạo hiệu ứng sang trọng cho liên kết bản đồ */
+.map-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #b76e79, #f6c5c5);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    font-size: 1.1em;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(183, 110, 121, 0.3);
+}
+
+.map-link:hover {
+    background: linear-gradient(135deg, #a24f5b, #e5a8a8);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(183, 110, 121, 0.5);
+}
+
+
+.floating-menu {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
+  
+  .menu-items {
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .menu-items.show {
+    display: flex;
+  }
+  
+  .menu-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 4px 0;
+    
+  }
+  
+  
+  .floating-btn {
+    background: #e05050;
+    border: none;
+    border-radius: 50%;
+    width: 36px;         /* nhỏ hơn */
+    height: 36px;        /* nhỏ hơn */
+    color: #fff;
+    font-size: 16px;     /* nhỏ hơn */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+  .floating-btn i {
+    color: white;
+    font-size: 16px;
+  }
+  
+  
+  
+  .btn-label {
+    position: absolute;
+    right: 40px; /* đảm bảo không đè lên nút */
+    background-color: #e05050;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    line-height: 1;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+    z-index: 1;
+    max-width: 200px;
+  }
+  
+  .menu-item:hover .btn-label {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  .popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    margin-top: 20px; /* hoặc 0 nếu muốn sát hẳn lên */
+  padding-top: 10px; /* nếu bên trong có padding gây dư */
+  }
+  
+  .popup-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+
+  .music-wrapper {
+    position: fixed;
+    bottom: 13px;
+    left: 10px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+  }
+  
+  .music-icon {
+    background: #e05050;
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+    position: relative;
+  }
+
+  .music-icon.strike::after {
+    content: "";
+    position: absolute;
+    width: 28px;              /* tăng chiều dài */
+    height: 2px;              /* mỏng */
+    background-color: white;  /* hoặc #e05050 */
+    transform: translate(-50%, -50%) rotate(45deg);
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  .music-hint {
+    margin-left: -13px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid #e05050;
+    border-radius: 30px;
+    padding: 6px 12px;
+    font-family: 'Lora', sans-serif;
+    font-size: 14px;
+    color: #333;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+  
+  .bank-info {
+    font-family: 'Lora', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.05em;
+    color: #444;
+    line-height: 1.6;
+  }
+  .bank-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3em;
+    color: black;
+    margin-top: 15px;
+  }
+  .bank-info p {
+    margin: 4px 0;
+  }
+  
+  .bank-info-scroll {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+  
+    /* Ẩn thanh cuộn trên các trình duyệt */
+    scrollbar-width: none;           /* Firefox */
+    -ms-overflow-style: none;        /* IE, Edge */
+  }
+  .bank-info-scroll::-webkit-scrollbar {
+    display: none;                   /* Chrome, Safari */
+  }
+  /*chỉnh sửa lại phần chữ đầu trang*/
+  @media (max-width: 768px) {
+    .header-text h1 {
+      font-size: 2.2em;
+    }
+  
+    .header-text h2 {
+      font-size: 1.8em;
+    }
+  
+    .header-text p {
+      font-size: 1.2em;
+    }
+  }
